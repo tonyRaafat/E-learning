@@ -1,0 +1,44 @@
+@model List<CourseCategory>
+<div class="container  ">
+
+    <div class="row">
+        <div class="col-6 p-3">
+            <h1>Category List</h1>
+        </div>
+
+        <div class="col-6 text-end p-3">
+            <a asp-controller="CourseCategory" asp-action="Create" class="btn btn-primary ">Create a New Course Category</a>
+        </div>
+    </div>
+
+    <table class="table m-auto w-auto table-bordered table-striped ">
+        <thead>
+            <tr>
+                <th>Category Name</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td class=" text-center " style="padding-top: 40px;">
+                        <h5 class="m-1" >
+                            @obj.Name
+                        </h5>
+                    </td>
+                    <td>
+                        <a asp-controller="CourseCategory" asp-action="Edit" asp-route-id="@obj.Id"
+                            class="btn btn-primary m-1 rounded"><i class="bi bi-pencil-square"></i> </a>
+                        <a asp-controller="CourseCategory" asp-action="Delete" asp-route-id="@obj.Id"
+                            class="btn btn-danger rounded">
+                            <i class="bi bi-trash3-fill"></i></a>
+                    </td>
+                    
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
